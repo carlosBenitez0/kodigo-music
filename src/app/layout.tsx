@@ -13,7 +13,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className="font-[family-name:var(--poppins)] ">{children}</body>
+      <body className="font-poppins ">{children}</body>
     </html>
   );
 }
