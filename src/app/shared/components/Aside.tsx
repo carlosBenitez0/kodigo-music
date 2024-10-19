@@ -4,11 +4,11 @@ import React from "react";
 export const Aside = () => {
   return (
     <aside className="px-4 row-span-2 border-2 border-black">
-      <div className="border-2 border-black">
+      <div className="boder0">
         <Image
-          src="https://res.cloudinary.com/dc69f3e0o/image/upload/v1729347657/Kodigo%20Music/nxsqlfpn9cm2eofutcip.png"
-          width={50}
-          height={20}
+          src="/kodigo-logo.png"
+          width={200}
+          height={100}
           alt="Logo codigo"
         />
       </div>

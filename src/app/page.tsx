@@ -4,7 +4,7 @@ import { Main } from "./shared/components/main/Main";
 
 export default function Home() {
   return (
-    <div className="min-h-screen w-full grid grid-cols-[auto,1fr] grid-rows-[auto,1fr]">
+    <div className="min-h-screen w-full grid grid-cols-[auto,1fr] grid-rows-[auto,1fr] bg-transparent ">
       <Aside />
       <Header />
       <Main />

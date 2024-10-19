@@ -1,0 +1,51 @@
+.indexButton {
+    position: relative;
+    display: block;
+    width: calc(100% - 2rem);
+    margin: 0 auto;
+    margin: .5rem auto 2rem;
+    padding: .7rem 0;
+    color: var(--off-white);
+    border: 1px solid rgba(255, 255, 255, 0.616);
+    backdrop-filter: blur(.5rem);
+    background-color: transparent;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    z-index: 10;
+    overflow: hidden;
+    border-radius: .5rem;
+    box-shadow: 0 0 .5rem rgba(255, 255, 255, 0.132);
+}
+
+.indexButton::before {
+    content: "";
+    position: absolute;
+    left: -1rem;
+    top: -1rem;
+    padding: 2rem;
+    border-radius: 50%;
+    background-image: var(--gradient-purple-dark);
+    z-index: -1;
+    transition: scale .5s;
+}
+
+.indexButton::after {
+    content: "";
+    position: absolute;
+    right: 2rem;
+    top: 1rem;
+    padding: 2rem;
+    border-radius: 50%;
+    background-image: var(--gradient-purple-blue-right);
+    z-index: -1;
+    transition: scale .5s;
+}
+
+.indexButton:hover::before {
+    scale: 3;
+}
+
+.indexButton:hover::after {
+    scale: 1.5;
+}
