@@ -18,7 +18,7 @@ export const Aside = () => {
       </div>
       <section>
         <a
-          className="relative block mx-auto my-6 py-2 text-center border border-[rgba(0,0,0,0.616)] backdrop-blur-[0.5rem] bg-transparent cursor-pointer z-10 overflow-hidden rounded-lg shadow-[0_0_.5rem_rgba(0,0,0,0.232)] transition-all duration-500 text-lg font-semibold"
+          className="relative block mx-auto my-6 py-2 text-center border border-[rgba(0,0,0,0.616)] backdrop-blur-[0.5rem] bg-transparent cursor-pointer z-10 overflow-hidden rounded-lg shadow-[0_0_.5rem_rgba(0,0,0,0.232)] transition-all duration-500 text-lg font-semibold min-w-[200px]"
           href="#"
           onMouseEnter={() => setBubble(true)}
           onMouseLeave={() => setBubble(false)}

@@ -5,7 +5,7 @@ import { Main } from "./shared/components/main/Main";
 export default function Home() {
   return (
     <div
-      className="min-h-screen w-full bg-gray-100  
+      className="min-h-screen  w-full bg-gray-100  
     relative z-0"
     >
       {/* <Bubble
