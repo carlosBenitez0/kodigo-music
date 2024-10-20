@@ -6,7 +6,7 @@ export const Aside = () => {
   const [bubble, setBubble] = useState(false);
 
   return (
-    <aside className="row-span-2 p-4">
+    <aside className="row-span-2 p-4 border-r border-gray-400">
       <div className="">
         <Image
           src="https://res.cloudinary.com/dc69f3e0o/image/upload/v1729347657/Kodigo%20Music/nxsqlfpn9cm2eofutcip.png"
@@ -18,7 +18,7 @@ export const Aside = () => {
       </div>
       <section>
         <a
-          className="relative block mx-auto my-6 py-2 text-center border border-[rgba(0,0,0,0.616)] backdrop-blur-[.5rem] bg-transparent cursor-pointer z-10 overflow-hidden rounded-lg shadow-[0_0_.5rem_rgba(0,0,0,0.232)] transition-all duration-500 text-lg font-semibold"
+          className="relative block mx-auto my-6 py-2 text-center border border-[rgba(0,0,0,0.616)] backdrop-blur-[0.5rem] bg-transparent cursor-pointer z-10 overflow-hidden rounded-lg shadow-[0_0_.5rem_rgba(0,0,0,0.232)] transition-all duration-500 text-lg font-semibold"
           href="#"
           onMouseEnter={() => setBubble(true)}
           onMouseLeave={() => setBubble(false)}
