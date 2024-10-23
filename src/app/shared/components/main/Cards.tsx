@@ -22,3 +22,27 @@ export const CardSong = ({ name, image, artist }: CardSongProps) => {
     </div>
   );
 };
+
+interface CardArtistProps {
+  name: string;
+  image: string;
+}
+
+export const CardArtist = ({ name, image }: CardArtistProps) => {
+  return (
+    <div className="shadow-lg shadow-slate-900/50 rounded-md mx-4 ">
+      <div className="rounded-md p-4">
+        <div className="h-[150px] w-full rounded-t-full flex items-center justify-center">
+          <img
+            className="w-[150px] h-[150px] object-cover rounded-full bg-center"
+            src={image}
+            alt={name}
+          />
+        </div>
+      </div>
+      <div className="text-gray-800 backdrop-blur-2xl bg-gray-300/10 p-4 rounded-b-md ">
+        <p className="font-bold ">{name}</p>
+      </div>
+    </div>
+  );
+};

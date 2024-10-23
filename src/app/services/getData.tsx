@@ -535,3 +535,48 @@ export const allSongs = {
     ],
   },
 };
+
+export const allArtists = {
+  artists: [
+    {
+      name: "The Weeknd",
+      image:
+        "https://res.cloudinary.com/dc69f3e0o/image/upload/v1729684211/Kodigo%20Music/artists/jv7zleinobfnx7zplqri.jpg",
+    },
+    {
+      name: "Harry Styles",
+      image:
+        "https://res.cloudinary.com/dc69f3e0o/image/upload/v1729684212/Kodigo%20Music/artists/oe8zpkgbtxbvt9xvkwcr.jpg",
+    },
+    {
+      name: "Dua Lipa",
+      image:
+        "https://res.cloudinary.com/dc69f3e0o/image/upload/v1729684211/Kodigo%20Music/artists/hpm51m0m4o66aatb5bv1.jpg",
+    },
+    {
+      name: "Justin Bieber",
+      image:
+        "https://res.cloudinary.com/dc69f3e0o/image/upload/v1729684214/Kodigo%20Music/artists/jn2h6vfhh756g8yztfyg.jpg",
+    },
+    {
+      name: "Olivia Rodrigo",
+      image:
+        "https://res.cloudinary.com/dc69f3e0o/image/upload/v1729684212/Kodigo%20Music/artists/tgko4czomxzj85q7usde.jpg",
+    },
+    {
+      name: "Lil Nas X",
+      image:
+        "https://res.cloudinary.com/dc69f3e0o/image/upload/v1729684212/Kodigo%20Music/artists/p6v6xiwfqpcsmvkubzfd.jpg",
+    },
+    {
+      name: "Billie Eilish",
+      image:
+        "https://res.cloudinary.com/dc69f3e0o/image/upload/v1729684212/Kodigo%20Music/artists/fp9dyujxzuiqmefs8vh2.jpg",
+    },
+    {
+      name: "Ed Sheeran",
+      image:
+        "https://res.cloudinary.com/dc69f3e0o/image/upload/v1729684214/Kodigo%20Music/artists/pntjmbbvxflrtpb3ayg7.jpg",
+    },
+  ],
+};

@@ -1,9 +1,10 @@
+"use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
-import { Keyboard, Mousewheel, Navigation } from "swiper/modules";
-import { CardSong } from "./main/Cards";
+import { Controller, Keyboard, Mousewheel, Navigation } from "swiper/modules";
+import { CardArtist, CardSong } from "./main/Cards";
 import { useEffect, useState } from "react";
-import { allSongs } from "@/app/services/getData";
+import { allArtists, allSongs } from "@/app/services/getData";
 
 export const Slide = () => {
   const [songs, setSongs] = useState(null);
@@ -39,6 +40,42 @@ export const Slide = () => {
             />
           </SwiperSlide>
         ))}
+    </Swiper>
+  );
+};
+
+export const SlideArtists = () => {
+  const [artists, setArtists] = useState(null);
+
+  useEffect(() => {
+    setArtists(allArtists);
+  }, []);
+
+  return (
+    <Swiper
+      breakpoints={{
+        320: {
+          slidesPerView: 3,
+          spaceBetween: 10,
+        },
+        678: {
+          slidesPerView: 4,
+          spaceBetween: 10,
+        },
+      }}
+      freeMode={true}
+      pagination={{ clickable: true }}
+      modules={[Navigation, Mousewheel, Keyboard]}
+      className="h-[300px] w-full"
+    >
+      {artists &&
+        artists.artists.map((artist) => {
+          return (
+            <SwiperSlide key={artist.name}>
+              <CardArtist name={artist.name} image={artist.image} />
+            </SwiperSlide>
+          );
+        })}
     </Swiper>
   );
 };
