@@ -6,18 +6,13 @@ export const Aside = () => {
   const [bubble, setBubble] = useState(false);
 
   return (
-<<<<<<< HEAD
-    <aside className="px-4 row-span-2 border-2 border-black">
-      <div className="boder0">
-=======
-    <aside className="row-span-2 p-4 border-r border-gray-400">
+    <aside className="p-4 row-span-2 border-r border-gray-400">
       <div className="">
->>>>>>> styles-main-page
         <Image
-          src="/kodigo-logo.png"
-          width={200}
-          height={100}
-          alt="Logo codigo"
+          src="https://res.cloudinary.com/dc69f3e0o/image/upload/v1729347657/Kodigo%20Music/nxsqlfpn9cm2eofutcip.png"
+          width={40}
+          height={40}
+          alt="Kodigo logo"
         />
         <h1 className="text-3xl font-bold">Kodigo Music</h1>
       </div>
