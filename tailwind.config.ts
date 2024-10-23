@@ -10,6 +10,7 @@ const config: Config = {
     extend: {},
   },
   plugins: [
+    require("@tailwindcss/line-clamp"),
     function ({ addUtilities }) {
       addUtilities({
         ".scrollbar-hide": {

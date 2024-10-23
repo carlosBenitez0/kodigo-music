@@ -1,10 +1,17 @@
-"use client";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/swiper-bundle.css";
 import { Keyboard, Mousewheel, Navigation } from "swiper/modules";
 import { CardSong } from "./main/Cards";
+import { useEffect, useState } from "react";
+import { allSongs } from "@/app/services/getData";
 
 export const Slide = () => {
+  const [songs, setSongs] = useState(null);
+
+  useEffect(() => {
+    setSongs(allSongs);
+  }, []);
+
   return (
     <Swiper
       breakpoints={{
@@ -22,36 +29,16 @@ export const Slide = () => {
       modules={[Navigation, Mousewheel, Keyboard]}
       className="h-[300px] w-full"
     >
-      <SwiperSlide key={1}>
-        <CardSong />
-      </SwiperSlide>
-      <SwiperSlide key={2}>
-        <CardSong />
-      </SwiperSlide>
-      <SwiperSlide key={3}>
-        <CardSong />
-      </SwiperSlide>
-      <SwiperSlide key={4}>
-        <CardSong />
-      </SwiperSlide>
-      <SwiperSlide key={5}>
-        <CardSong />
-      </SwiperSlide>
-      <SwiperSlide key={6}>
-        <CardSong />
-      </SwiperSlide>
-      <SwiperSlide key={7}>
-        <CardSong />
-      </SwiperSlide>
-      <SwiperSlide key={8}>
-        <CardSong />
-      </SwiperSlide>
-      <SwiperSlide key={9}>
-        <CardSong />
-      </SwiperSlide>
-      <SwiperSlide key={10}>
-        <CardSong />
-      </SwiperSlide>
+      {songs &&
+        songs.tracks.items.map((song, index) => (
+          <SwiperSlide key={index}>
+            <CardSong
+              name={song.data.name}
+              image={song.data.albumOfTrack.coverArt.sources[0].url}
+              artist={song.data.artists.items[0].profile.name}
+            />
+          </SwiperSlide>
+        ))}
     </Swiper>
   );
 };
