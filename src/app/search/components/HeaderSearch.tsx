@@ -1,13 +1,28 @@
 "use client";
+import { useSearch } from "@/app/hook/useSearch";
 import Link from "next/link";
 import React, { useState } from "react";
+import { FieldValues, SubmitHandler, useForm } from "react-hook-form";
 import { IoIosArrowBack } from "react-icons/io";
 import { MdOutlineDarkMode } from "react-icons/md";
 import { MdOutlineLightMode } from "react-icons/md";
 import { SlMagnifier } from "react-icons/sl";
 
-export const Header = () => {
+export const HeaderSearch = () => {
   const [mode, setMode] = useState("light");
+  const { handleSearchChange } = useSearch();
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    mode: "onSubmit",
+  });
+
+  const onHandleSubmit: SubmitHandler<FieldValues> = async (data) => {
+    handleSearchChange(data.input_search);
+  };
 
   const modeHandler = () => {
     if (mode === "light") {
@@ -25,17 +40,36 @@ export const Header = () => {
             <IoIosArrowBack className="text-2xl cursor-pointer" />
           </div>
         </Link>
-        <Link href="/search">
-          <div className="flex rounded-full p-[2px] border-2 bg-gray-200 items-center hover:bg-gray-300 transition-all duration-300 hover:text-gray-900 hover:border-gray-400 text-gray-500 cursor-pointer select-none ">
-            <div className=" p-2 outline-none rounded-l-full  min-w-[300px] ">
-              Busca tu canción
-            </div>
 
-            <div className=" flex items-center justify-center p-1 px-2 rounded-r-full border-l border-gray-400">
-              <SlMagnifier className="text-xl " />
-            </div>
+        <form
+          className={`flex rounded-full p-[2px] border-2 bg-gray-200 items-center hover:bg-gray-300 transition-all duration-300 hover:text-gray-900  text-gray-500 select-none ${
+            errors.input_search ? "border-red-500" : "hover:border-gray-400"
+          }`}
+          onSubmit={handleSubmit(onHandleSubmit)}
+        >
+          <input
+            type="text"
+            id="input_search"
+            placeholder="Busca tu canción"
+            className="p-2 px-4  outline-none rounded-l-full min-w-[300px] bg-transparent"
+            {...register("input_search", { required: true, minLength: 3 })}
+          />
+
+          <div className="flex items-center justify-center p-1 px-2 rounded-r-full border-l border-gray-400">
+            <button type="submit">
+              <SlMagnifier
+                className={`text-xl ${
+                  errors.input_search ? "text-red-500" : "text-gray-500"
+                }`}
+              />
+            </button>
           </div>
-        </Link>
+          {errors.input_search && (
+            <small className="text-red-500">
+              Por favor, ingresa al menos 3 caracteres.
+            </small>
+          )}
+        </form>
       </div>
       {mode === "light" ? (
         <div

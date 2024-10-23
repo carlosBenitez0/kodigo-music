@@ -5,9 +5,10 @@ import { Keyboard, Mousewheel, Navigation } from "swiper/modules";
 import { CardArtist, CardSong } from "./main/Cards";
 import { useEffect, useState } from "react";
 import { allArtists, allSongs } from "@/app/services/getData";
+import { AllArtists, AllSongs } from "@/app/interfaces/IResponse";
 
 export const Slide = () => {
-  const [songs, setSongs] = useState(null);
+  const [songs, setSongs] = useState<AllSongs | null>(null);
 
   useEffect(() => {
     setSongs(allSongs);
@@ -45,7 +46,7 @@ export const Slide = () => {
 };
 
 export const SlideArtists = () => {
-  const [artists, setArtists] = useState(null);
+  const [artists, setArtists] = useState<AllArtists | null>(null);
 
   useEffect(() => {
     setArtists(allArtists);

@@ -1,4 +1,3 @@
-"use client";
 import { Slide, SlideArtists } from "../Slide";
 
 export const Main = () => {

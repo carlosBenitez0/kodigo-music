@@ -1,196 +1,105 @@
-export interface IResponse {
-  albums: Albums;
-  artists: Albums;
-  episodes: Episodes;
-  genres: Albums;
-  playlists: Playlists;
-  podcasts: Podcasts;
-  topResults: TopResults;
-  tracks: Tracks;
-  users: Albums;
+export interface Song {
+  data: SongData;
 }
 
-export interface Albums {
-  totalCount: number;
-  items: AlbumsItem[];
+export interface SearchFormData {
+  input_search: string;
 }
 
-export interface AlbumsItem {
-  data: PurpleData;
+// Definición de la interfaz para la estructura de una canción
+export interface SongData {
+  data: {
+    name: string;
+    albumOfTrack: {
+      coverArt: {
+        sources: { url: string }[];
+      };
+    };
+    artists: {
+      items: { profile: { name: string } }[];
+    };
+  };
 }
 
-export interface PurpleData {
-  uri: string;
+// Definición de la interfaz para la estructura de un artista
+export interface ArtistData {
   name: string;
-  artists: Artists;
-  coverArt: CoverArt;
-  date: DateClass;
+  image: string;
 }
 
-export interface Artists {
-  items: PurpleItem[];
+// Definición de la interfaz para la respuesta de todas las canciones
+export interface AllSongs {
+  tracks: {
+    items: SongData[];
+  };
 }
 
-export interface PurpleItem {
-  uri: string;
-  profile: Publisher;
+// Definición de la interfaz para la respuesta de todos los artistas
+export interface AllArtists {
+  artists: ArtistData[];
 }
 
-export interface Publisher {
+/* // Tipo para un Artista
+type Artist = {
+  id: number;
   name: string;
-}
+  image: string; // URL de la imagen del artista
+};
 
-export interface CoverArt {
-  sources: Source[];
-}
+// Tipo para un Álbum
+type Album = {
+  id: number;
+  title: string;
+  coverImage: string; // URL de la portada del álbum
+  releaseDate: string; // Fecha de lanzamiento en formato ISO
+  artist: Artist; // Relación con el artista
+};
 
-export interface Source {
-  url: string;
-  width: number | null;
-  height: number | null;
-}
+// Tipo para una Canción
+type Track = {
+  id: number;
+  title: string;
+  duration: number; // Duración en segundos
+  album: Album; // Relación con el álbum
+  artists: Artist[]; // Lista de artistas que participan en la canción
+};
 
-export interface DateClass {
-  year: number;
-}
-
-export interface Episodes {
-  totalCount: number;
-  items: EpisodesItem[];
-}
-
-export interface EpisodesItem {
-  data: FluffyData;
-}
-
-export interface FluffyData {
-  uri: string;
-  name: string;
-  coverArt: CoverArt;
-  duration: Duration;
-  releaseDate: ReleaseDate;
-  podcast: Podcast;
-  description: string;
-  contentRating: ContentRating;
-}
-
-export interface ContentRating {
-  label: Label;
-}
-
-export enum Label {
-  Explicit = "EXPLICIT",
-  None = "NONE",
-}
-
-export interface Duration {
-  totalMilliseconds: number;
-}
-
-export interface Podcast {
-  coverArt: CoverArt;
-}
-
-export interface ReleaseDate {
-  isoString: Date;
-}
-
-export interface Playlists {
-  totalCount: number;
-  items: PlaylistsItem[];
-}
-
-export interface PlaylistsItem {
-  data: any[] | DataData;
-}
-
-export interface DataData {
-  uri: string;
+// Tipo para la Lista de Canciones (Playlist)
+type Playlist = {
+  id: number;
   name: string;
   description: string;
-  images: Images;
-  owner: Publisher;
-}
+  tracks: Track[]; // Lista de canciones en la playlist
+};
 
-export interface Images {
-  items: CoverArt[];
-}
+const exampleArtist: Artist = {
+  id: 1,
+  name: "John Doe",
+  image: "https://example.com/john.jpg",
+};
 
-export interface Podcasts {
-  totalCount: number;
-  items: PodcastsItem[];
-}
+const exampleAlbum: Album = {
+  id: 1,
+  title: "Greatest Hits",
+  coverImage: "https://example.com/album.jpg",
+  releaseDate: "2023-10-23",
+  artist: exampleArtist,
+};
 
-export interface PodcastsItem {
-  data: TentacledData;
-}
+const exampleTrack: Track = {
+  id: 1,
+  title: "Amazing Song",
+  duration: 240, // en segundos (4 minutos)
+  album: exampleAlbum,
+  artists: [exampleArtist],
+};
 
-export interface TentacledData {
-  uri: string;
-  name: string;
-  coverArt: CoverArt;
-  type: string;
-  publisher: Publisher;
-  mediaType: string;
-}
+const examplePlaylist: Playlist = {
+  id: 1,
+  name: "My Favorite Songs",
+  description: "A collection of my favorite tracks.",
+  tracks: [exampleTrack],
+};
 
-export interface TopResults {
-  items: TopResultsItem[];
-  featured: any[];
-}
-
-export interface TopResultsItem {
-  data: StickyData;
-}
-
-export interface StickyData {
-  uri: string;
-  id?: string;
-  name: string;
-  albumOfTrack?: AlbumOfTrack;
-  artists?: Artists;
-  contentRating?: ContentRating;
-  duration?: Duration;
-  playability?: Playability;
-  description?: string;
-  images?: Images;
-  owner?: Publisher;
-  coverArt?: CoverArt;
-  date?: DateClass;
-}
-
-export interface AlbumOfTrack {
-  uri: string;
-  name: string;
-  coverArt: CoverArt;
-  id: string;
-  sharingInfo: SharingInfo;
-}
-
-export interface SharingInfo {
-  shareUrl: string;
-}
-
-export interface Playability {
-  playable: boolean;
-}
-
-export interface Tracks {
-  totalCount: number;
-  items: TracksItem[];
-}
-
-export interface TracksItem {
-  data: IndigoData;
-}
-
-export interface IndigoData {
-  uri: string;
-  id: string;
-  name: string;
-  albumOfTrack: AlbumOfTrack;
-  artists: Artists;
-  contentRating: ContentRating;
-  duration: Duration;
-  playability: Playability;
-}
+console.log(examplePlaylist);
+ */
