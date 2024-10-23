@@ -9,19 +9,7 @@ const config: Config = {
   theme: {
     extend: {},
   },
-  plugins: [
-    require("@tailwindcss/line-clamp"),
-    function ({ addUtilities }) {
-      addUtilities({
-        ".scrollbar-hide": {
-          "scrollbar-width": "none",
-
-          "&::-webkit-scrollbar": {
-            display: "none",
-          },
-        },
-      });
-    },
-  ],
+  plugins: [],
 };
+
 export default config;
